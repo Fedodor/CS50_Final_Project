@@ -1,8 +1,6 @@
 # CS50_Final_Project
 Video Demo: https://youtu.be/14pbbAfhqMw
 
-![app.png](docs/app.png)
-
 ## Stack
 - FastAPI + pydantic, pydantic-settings, aiohttp
 - React + axios, ant design, tailwind
