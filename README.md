@@ -9,7 +9,7 @@ For my CS50 final project, I developed a **full-stack web application** using a 
 
 ### Overview of Technologies
 
-**FastAPI** is a modern, fast (high-performance) web framework for building APIs with Python. It provides native support for asynchronous programming and is built on **ASGI**, making it ideal for projects that require speed and efficient handling of numerous concurrent requests. FastAPI automatically generates interactive API documentation using **Swagger** and **Redoc**, which is particularly useful for ensuring that users and developers understand the API endpoints and request/response formats.
+**FastAPI** is a modern, fast (high-performance) web framework for building APIs with Python. It provides native support for asynchronous programming, making it ideal for projects that require speed and efficient handling of numerous concurrent requests. FastAPI automatically generates interactive API documentation using **Swagger** and **Redoc**, which is particularly useful for ensuring that users and developers understand the API endpoints and request/response formats.
 
 The backend leverages **Pydantic** for data validation and parsing. This library makes it easy to define and enforce data models, minimizing the risk of unexpected data being passed to the system. Additionally, **aiohttp** is utilized for making asynchronous HTTP requests, enhancing the backend’s capability to communicate with other APIs efficiently.
 
@@ -21,7 +21,7 @@ The goal of this project is to create a full-stack application that offers real-
 
 The project offers the following key features:
 
-1. **User Authentication:** Secure login and registration functionalities are implemented using **FastAPI** and JWT (JSON Web Tokens) for session management.
+1. **User Authentication:**  Functionalities are implemented using **FastAPI**.
 2. **Interactive Dashboard:** A dynamic dashboard that updates in real-time using React's state management and Axios to communicate with the backend.
 3. **Data Management:** Users can create, read, update, and delete (CRUD) data through the application, which is managed and validated on the backend using **Pydantic**.
 4. **Responsive Design:** The application is built with a mobile-first approach using **TailwindCSS**, ensuring compatibility across devices of different sizes.
