@@ -3,6 +3,10 @@
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-informational?logo=fastapi)
 ![React](https://img.shields.io/badge/React-Frontend-informational?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-Build%20Tool-informational?logo=vite)
+![Pydantic](https://img.shields.io/badge/Pydantic-Validation-informational?logo=pydantic)
+![aiohttp](https://img.shields.io/badge/aiohttp-Async%20HTTP-informational)
+![Ant Design](https://img.shields.io/badge/Ant%20Design-UI-informational?logo=antdesign)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-Styling-informational?logo=tailwindcss)
 ![CS50](https://img.shields.io/badge/CS50-Final%20Project-informational)
 
 This is my final project for CS50x: a small full-stack web application built with a FastAPI backend and a React frontend.
