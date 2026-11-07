@@ -1,8 +1,6 @@
-from aiohttp import ClientSession, ClientError
-from async_lru import alru_cache
-import logging
+from aiohttp import ClientSession
 
-logger = logging.getLogger(__name__)
+from async_lru import alru_cache
 
 
 class HTTPClient:
@@ -14,38 +12,21 @@ class HTTPClient:
             }
         )
 
-    async def close(self):
-        await self._session.close()
-
 
 class CMCHTTPClient(HTTPClient):
     @alru_cache
     async def get_listings(self):
-        try:
-            async with self._session.get(
-                "/v1/cryptocurrency/listings/latest"
-            ) as resp:
-                if resp.status != 200:
-                    logger.error(f"API error: {resp.status} - {await resp.text()}")
-                    raise ClientError(f"API request failed with status {resp.status}")
-                result = await resp.json()
-                return result["data"]
-        except Exception as e:
-            logger.error(f"Error in get_listings: {e}")
-            raise
+        async with self._session.get(
+            "/v1/cryptocurrency/listings/latest"
+        ) as resp:
+            result = await resp.json()
+            return result["data"]
 
     @alru_cache
     async def get_currency(self, currency_id: int):
-        try:
-            async with self._session.get(
-                "/v2/cryptocurrency/quotes/latest",
-                params={"id": currency_id}
-            ) as resp:
-                if resp.status != 200:
-                    logger.error(f"API error: {resp.status} - {await resp.text()}")
-                    raise ClientError(f"API request failed with status {resp.status}")
-                result = await resp.json()
-                return result["data"][str(currency_id)]
-        except Exception as e:
-            logger.error(f"Error in get_currency for {currency_id}: {e}")
-            raise
+        async with self._session.get(
+            "/v2/cryptocurrency/quotes/latest",
+            params={"id": currency_id}
+        ) as resp:
+            result = await resp.json()
+            return result["data"][str(currency_id)]

@@ -1,106 +1,125 @@
-# CS50 Final Project - Cryptocurrency Dashboard
+# CS50 Final Project
 
-A full-stack application that displays cryptocurrency data from CoinMarketCap API with a React frontend and FastAPI backend.
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-informational?logo=fastapi)
+![React](https://img.shields.io/badge/React-Frontend-informational?logo=react)
+![Vite](https://img.shields.io/badge/Vite-Build%20Tool-informational?logo=vite)
+![Pydantic](https://img.shields.io/badge/Pydantic-Validation-informational?logo=pydantic)
+![aiohttp](https://img.shields.io/badge/aiohttp-Async%20HTTP-informational)
+![Ant Design](https://img.shields.io/badge/Ant%20Design-UI-informational?logo=antdesign)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-Styling-informational?logo=tailwindcss)
+![CS50](https://img.shields.io/badge/CS50-Final%20Project-informational)
 
-## Features
+This is my final project for CS50x: a small full-stack web application built with a FastAPI backend and a React frontend.
 
-- Real-time cryptocurrency data display
-- Interactive cryptocurrency list with detailed views
-- Responsive UI with Ant Design components
-- API integration with CoinMarketCap
+The goal was not to build a huge product, but to connect the main parts of a modern web app: an API, data validation, async backend logic, a frontend interface, and communication between both sides.
 
-## Project Structure
+## Demo
 
+Video demo: https://youtu.be/14pbbAfhqMw
+
+<!-- Optional: add screenshots later
+## Screenshots
+
+![Dashboard screenshot](docs/images/dashboard.png)
+![Mobile view](docs/images/mobile.png)
+-->
+
+## Tech stack
+
+**Backend**
+
+- Python
+- FastAPI
+- Pydantic / pydantic-settings
+- aiohttp
+
+**Frontend**
+
+- React
+- Vite
+- Ant Design
+- Tailwind CSS
+
+## What the app includes
+
+- A FastAPI backend with structured request/response validation
+- Async HTTP logic with `aiohttp`
+- A React frontend built with reusable components
+- A dashboard-style interface
+- Basic CRUD-style data management
+- Responsive UI work with Tailwind CSS and Ant Design
+
+## What I practiced
+
+This project helped me move from separate programming exercises to a complete web application. The main things I practiced were:
+
+- designing API endpoints
+- validating data with Pydantic
+- connecting frontend and backend code
+- working with async Python
+- organizing a React project
+- making a UI usable on different screen sizes
+- documenting a project clearly enough for another person to run it
+
+## Project structure
+
+```text
+CS50_Final_Project/
+├── backend/
+│   ├── src/
+│   └── requirements.txt
+├── frontend/
+│   ├── src/
+│   ├── package.json
+│   ├── tailwind.config.js
+│   └── vite.config.js
+└── README.md
 ```
-.
-├── backend/                 # FastAPI backend
-│   ├── src/                 # Source code
-│   │   ├── main.py          # Main application entry point
-│   │   ├── router.py        # API routes
-│   │   ├── http_client.py   # HTTP client for CoinMarketCap API
-│   │   ├── init.py          # Application initialization
-│   │   └── config.py      # Configuration management
-│   └── requirements.txt     # Python dependencies
-├── frontend/                # React frontend
-│   ├── src/                 # Source code
-│   │   ├── App.jsx          # Main application component
-│   │   ├── components/        # Reusable components
-│   │   └── utils.js         # Utility functions
-│   └── package.json         # Frontend dependencies
-├── .env                     # Environment variables (API keys)
-└── README.md                # This file
+
+## Run locally
+
+### Backend
+
+```bash
+cd backend
+python -m venv .venv
+source .venv/bin/activate  # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+pip install uvicorn
+uvicorn src.main:app --reload
 ```
 
-## Setup Instructions
+The backend will run at:
 
-### Backend Setup
+```text
+http://127.0.0.1:8000
+```
 
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-   ```
+API docs:
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   pip install async-lru
-   ```
+```text
+http://127.0.0.1:8000/docs
+```
 
-3. Create a `.env` file with your CoinMarketCap API key:
-   ```
-   CMC_API_KEY=your_api_key_here
-   ```
+### Frontend
 
-4. Run the backend server:
-   ```bash
-   python -m uvicorn src.main:app --reload
-   ```
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-### Frontend Setup
+The frontend will run at:
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
+```text
+http://127.0.0.1:5173
+```
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+## Future improvements
 
-3. Create a `.env` file with your backend API URL:
-   ```
-   REACT_APP_API_BASE_URL=http://localhost:8000
-   ```
-
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
-
-## Development Guidelines
-
-1. All code should follow consistent naming conventions (English only)
-2. Use proper error handling and logging
-3. Add documentation for all functions and components
-4. Write unit tests for all components
-5. Follow React best practices for state management
-
-## Security Considerations
-
-1. Never commit API keys to version control
-2. Use environment variables for sensitive data
-3. Implement proper CORS settings
-4. Add input validation and sanitization
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a pull request
-
-## License
-
-This project is licensed under the MIT License.
+- Add automated backend tests
+- Add frontend tests
+- Improve error handling in the UI
+- Add user roles and permissions
+- Add WebSocket notifications or live updates
+- Prepare a Docker Compose setup for easier local launch
